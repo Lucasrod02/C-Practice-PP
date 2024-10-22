@@ -46,6 +46,17 @@ void carga(FILE *archi) {
         fwrite(&arr[i], sizeof(alumno), 1, archi);
     }
 }
+
+void mostrar(FILE *archi) {
+    alumno c;
+    rewind(archi);
+    printf("Informacion de alumnos:\n");
+
+    while (fread(&c, sizeof(c), 1, archi) == 1) {
+        printf("Nombre del Alumno: %s\n", c.nombre);
+        printf("NRO de registro: %d\n", c.nroReg);
+        printf("Resultado del parcial: %c\n", c.resultadoParci);
+    }
 }
 
 int main() {
